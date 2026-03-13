@@ -1,0 +1,56 @@
+estoque = []
+while True:
+    print("\t📚Sistema de papelaria📚")
+    print("-"*30)
+    
+    print("\t\t\tMenu")
+    print("1 - Cadastro")
+    print("2 - Vendas")
+    print("3 - Gerenciamento")
+    opcao = input("Escolha uma opção: ")
+    
+    match opcao:
+        case "1":
+            print("\n\tCadastro de produto\n")
+            print("-"*30)
+            
+            while True:
+                nome = input("Digite o nome: ")
+                #para cancelar digite sair
+                if nome.lower() == 'sair':
+                    print("Operação encerrada")
+                    break
+                
+                autor = input("Autor: ")
+                custo = float(input("Digite o custo: ").replace(',', '.'))
+                margem = float(input("Digite a margem de lucro: ").replace(',', '.'))
+                venda = custo * margem
+                lucro = venda - custo
+                
+                print(f"Nome: {nome}")
+                print(f"Autor: {autor}")
+                print(f"Valor: {venda: .2f}")
+                print(f"Lucro: {lucro: .2f}")
+                
+                produto = {
+                    "nome": nome,
+                    "autor": autor,
+                    "venda": venda,
+                    "lucro": lucro
+                }
+                estoque.append(produto)
+                
+                print(f"{nome} cadastrado com Sucesso!")
+            
+        case "2":
+            print("\n\tVendas")
+            print("-"*30)
+            
+        case "3":
+            print("\n\t\tGerenciamento")
+            print("-"*30)
+        
+        case "0":
+            print("Voltando ao menu")
+            break
+    
