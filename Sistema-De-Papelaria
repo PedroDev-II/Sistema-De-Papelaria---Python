@@ -7,6 +7,7 @@ while True:
     print("1 - Cadastro")
     print("2 - Vendas")
     print("3 - Gerenciamento")
+    print("4 - Pesquisa")
     opcao = input("Escolha uma opção: ")
     
     match opcao:
@@ -41,7 +42,7 @@ while True:
                 estoque.append(produto)
                 
                 print(f"{nome} cadastrado com Sucesso!")
-            
+        
         case "2":
             print("\n\tVendas")
             print("-"*30)
@@ -49,7 +50,23 @@ while True:
         case "3":
             print("\n\t\tGerenciamento")
             print("-"*30)
-        
+            
+        case "4": 
+            print("\n\t\tProdutos")
+            print("-"*30)
+            
+            busca = input("Digite o item que deseja procurar: ").lower()
+            retorno = False
+            
+            for produto in estoque:
+                if busca in produto['nome'].lower():
+                    print(f"Produto: {produto['nome']} | Autor: {produto['autor']} | Valor: R${produto['valor']}")
+                    retorno = True
+                
+                    
+            if not retorno:
+                print("Produto não encontrado")
+                    
         case "0":
             print("Voltando ao menu")
             break
